@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   dart_django_client_library:
-    path: ../dart-django-client-library
+    path: ../Dart-Django-Client-Library
   http: ^0.13.3
 
 
