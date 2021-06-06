@@ -294,7 +294,7 @@ test ('test page query order by ver 2', () async {
   test('test create object with invalid key', () async {
     CollectionManager<Product> cm = CollectionManager(() => new Product());
     ObjectManager<Product> om = await cm.create({"barasdfcode": "hello"});
-    expect(om.updated!.barcode, "This field is required.");
+    expect(om.updated.barcode, null);
   });
 
   test('test create object with invalid key v2', () async {
