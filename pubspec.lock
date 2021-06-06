@@ -53,7 +53,7 @@ packages:
   dart_django_client_library:
     dependency: "direct main"
     description:
-      path: "../dart-django-client-library"
+      path: "../Dart-Django-Client-Library"
       relative: true
     source: path
     version: "1.0.0"
