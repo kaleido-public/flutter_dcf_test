@@ -31,8 +31,8 @@ void main() {
     CollectionManager<Product> cm = CollectionManager(() => new Product());
     await cm.create({"barcode": "hello"});
     ObjectManager<Product> om = await cm.get({"barcode": "hello"});
-    expect(om.updated!.barcode, 'hello');
-    expect(om.updated!.id, 1);
+    expect(om.updated.barcode, 'hello');
+    expect(om.updated.id, 1);
   });
 
   test('test get object more than one should fail', () async {
@@ -51,16 +51,16 @@ void main() {
     await cm.create({"barcode": "osu"});
     await cm.create({"barcode": "goodbye"});
     ObjectManager<Product> om = await cm.get({"barcode__in": ["hello", "goodbye"]});
-    expect(om.updated!.barcode, 'goodbye');
-    expect(om.updated!.id, 2);
+    expect(om.updated.barcode, 'goodbye');
+    expect(om.updated.id, 2);
   });
 
   test('test get object with params', () async {
     CollectionManager<Product> cm = CollectionManager(() => new Product());
     await cm.create({"barcode": "osu"});
     ObjectManager<Product> om = await cm.get({"barcode__exact": "osu"});
-    expect(om.updated!.barcode, 'osu');
-    expect(om.updated!.id, 1);
+    expect(om.updated.barcode, 'osu');
+    expect(om.updated.id, 1);
   });
 
   test ('test page default', () async {
@@ -265,7 +265,7 @@ test ('test page query order by ver 2', () async {
   test('test create object', () async {
     CollectionManager<Product> cm = CollectionManager(() => new Product());
     ObjectManager<Product> om = await cm.create({"barcode": "hello"});
-    expect(om.updated!.barcode, "hello");
+    expect(om.updated.barcode, "hello");
   });
 
 
@@ -306,15 +306,15 @@ test ('test page query order by ver 2', () async {
   test('test get or create', () async {
     CollectionManager<Product> cm = CollectionManager(() => new Product());
     ObjectManager<Product> om = await cm.get_or_create({"query": {"barcode": "product 1"}, "defaults": {"brand_id": null} });
-    expect(om.updated!.barcode, "product 1");
-    expect(om.updated!.id, 1);
+    expect(om.updated.barcode, "product 1");
+    expect(om.updated.id, 1);
   });
 
   test('test get or create v2', () async {
     CollectionManager<Product> cm = CollectionManager(() => new Product());
     ObjectManager<Product> om = await cm.get_or_create({"query": {"barcode": "product 1"}});
-    expect(om.updated!.barcode, "product 1");
-    expect(om.updated!.id, 1);
+    expect(om.updated.barcode, "product 1");
+    expect(om.updated.id, 1);
   });
 
   test('test get or create v3', () async {
@@ -322,15 +322,15 @@ test ('test page query order by ver 2', () async {
     await cm.create({"barcode": "product 1"});
     await cm.create({"barcode": "product 2"});
     ObjectManager<Product> om = await cm.get_or_create({"query": {"barcode": "product 2"}, "defaults": {"brand_id": null}});
-    expect(om.updated!.barcode, "product 2");
-    expect(om.updated!.id, 2);
+    expect(om.updated.barcode, "product 2");
+    expect(om.updated.id, 2);
   });
 
   test('test update or create', () async {
     CollectionManager<Product> cm = CollectionManager(() => new Product());
     ObjectManager<Product> om = await cm.update_or_create({"query": {"barcode": "product 2"}, "defaults": {"barcode": "product 3"}});
-    expect(om.updated!.barcode, "product 2");
-    expect(om.updated!.id, 1);
+    expect(om.updated.barcode, "product 2");
+    expect(om.updated.id, 1);
   });
 
 
@@ -338,8 +338,8 @@ test ('test page query order by ver 2', () async {
     CollectionManager<Product> cm = CollectionManager(() => new Product());
     await cm.create({"barcode": "product 2"});
     ObjectManager<Product> om = await cm.update_or_create({"query": {"barcode": "product 2"}, "defaults": {"barcode": "product 3"}});
-    expect(om.updated!.barcode, "product 3");
-    expect(om.updated!.id, 1);
+    expect(om.updated.barcode, "product 3");
+    expect(om.updated.id, 1);
   });
 
 
